@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+    body {
+      background: url("{{ url_for('static', filename='img/mushoku_Tesnei.jpeg') }}") no-repeat center center fixed;
+      background-size: cover;
+      }
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+    .card {
+        height: 100%;
+    }
+</style>
+     <title>NazProyect</title>
+</head>
+<body>
+    <main class="container">
+
+        <header>
+            <h1 class="text-center">NazProyect</h1>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="{{ url_for('index') }}">NazProyect</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('animales') }}">animales</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('carros') }}">carros</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('maravillas') }}">maravillas del mundo</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('acerca') }}">acerca de....</a>
+                      </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                      {% if session.logged_in %}
+                        <li class="nav-item">
+                          <span class="navbar-text me-3">Bienvenido {{ session.user_name }}</span>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link btn btn-outline-danger" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+                        </li>
+                      {% else %}
+                        <li class="nav-item">
+                          <a class="nav-link btn btn-outline-primary" href="{{ url_for('iniciar') }}">Iniciar Sesión</a>
+                        </li>
+                      {% endif %}
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+            <div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/muralla.jpg') }}" class="card-img-top" alt="Gran Muralla China">
+        <div class="card-body">
+          <h5 class="card-title">Gran Muralla China</h5>
+          <p class="card-text">Impresionante estructura defensiva construida para proteger el imperio chino.</p>
+          <a href="https://es.wikipedia.org/wiki/Gran_Muralla_China" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/petra.jpg') }}" class="card-img-top" alt="Petra">
+        <div class="card-body">
+          <h5 class="card-title">Petra</h5>
+          <p class="card-text">Ciudad histórica excavada en roca, en Jordania, famosa por su arquitectura.</p>
+          <a href="https://es.wikipedia.org/wiki/Petra" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/cristo.jpg') }}" class="card-img-top" alt="Cristo Redentor">
+        <div class="card-body">
+          <h5 class="card-title">Cristo Redentor</h5>
+          <p class="card-text">Estatua icónica ubicada en Río de Janeiro, símbolo de la fe cristiana.</p>
+          <a href="https://es.wikipedia.org/wiki/Cristo_Redentor_(R%C3%ADo_de_Janeiro)" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/machu.jpg') }}" class="card-img-top" alt="Machu Picchu">
+        <div class="card-body">
+          <h5 class="card-title">Machu Picchu</h5>
+          <p class="card-text">Antigua ciudad inca enclavada en los Andes peruanos, Patrimonio de la Humanidad.</p>
+          <a href="https://es.wikipedia.org/wiki/Machu_Picchu" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/chichen.JPG') }}" class="card-img-top" alt="Chichén Itzá">
+        <div class="card-body">
+          <h5 class="card-title">Chichén Itzá</h5>
+          <p class="card-text">Imponente ciudad maya ubicada en Yucatán, México, con su pirámide central.</p>
+          <a href="https://es.wikipedia.org/wiki/Chich%C3%A9n_Itz%C3%A1" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/coliseo.jpg') }}" class="card-img-top" alt="Coliseo de Roma">
+        <div class="card-body">
+          <h5 class="card-title">Coliseo de Roma</h5>
+          <p class="card-text">Anfiteatro romano símbolo del Imperio, escenario de batallas y espectáculos.</p>
+          <a href="https://es.wikipedia.org/wiki/Coliseo" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/taj.jpeg') }}" class="card-img-top" alt="Taj Mahal">
+        <div class="card-body">
+          <h5 class="card-title">Taj Mahal</h5>
+          <p class="card-text">Majestuoso mausoleo de mármol blanco construido por amor en la India.</p>
+          <a href="https://es.wikipedia.org/wiki/Taj_Mahal" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/gran.jpg') }}" class="card-img-top" alt="Gran Pirámide de Guiza">
+        <div class="card-body">
+          <h5 class="card-title">Gran Pirámide de Guiza</h5>
+          <p class="card-text">Única maravilla del mundo antiguo aún en pie, construida hace más de 4,500 años.</p>
+          <a href="https://es.wikipedia.org/wiki/Gran_Pir%C3%A1mide_de_Guiza" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/stone.jpeg') }}" class="card-img-top" alt="Stonehenge">
+        <div class="card-body">
+          <h5 class="card-title">Stonehenge</h5>
+          <p class="card-text">Misterioso monumento megalítico del Reino Unido, rodeado de teorías y leyendas.</p>
+          <a href="https://es.wikipedia.org/wiki/Stonehenge" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        </header>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

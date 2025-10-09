@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>NazProyect - Carros</title>
+</head>
+<style>
+    body {
+      background: url("{{ url_for('static', filename='img/mushoku_Tesnei.jpeg') }}") no-repeat center center fixed;
+      background-size: cover;
+      }
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+    .card {
+        height: 100%;
+    }
+</style>
+<body>
+    <main class="container">
+        <header>
+            <h1 class="text-center">NazProyect - Carros</h1>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">NazProyect</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('animales') }}">Animales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{ url_for('carros') }}">Carros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('maravillas') }}">Maravillas del mundo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('acerca') }}">Acerca de...</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                          {% if session.logged_in %}
+                            <li class="nav-item">
+                              <span class="navbar-text me-3">Bienvenido {{ session.user_name }}</span>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link btn btn-outline-danger" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+                            </li>
+                          {% else %}
+                            <li class="nav-item">
+                              <a class="nav-link btn btn-outline-primary" href="{{ url_for('iniciar') }}">Iniciar Sesión</a>
+                            </li>
+                          {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/image.png') }}" class="card-img-top" alt="Ford Model T">
+        <div class="card-body">
+          <h5 class="card-title">Ford Model T</h5>
+          <p class="card-text">Uno de los primeros autos producidos en masa por Ford.</p>
+          <a href="https://en.wikipedia.org/wiki/Ford_Model_T" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/chev.jpg') }}" class="card-img-top" alt="Chevrolet Bel Air">
+        <div class="card-body">
+          <h5 class="card-title">Chevrolet Bel Air</h5>
+          <p class="card-text">Clásico estadounidense de los años 50, símbolo de estilo y elegancia.</p>
+          <a href="https://en.wikipedia.org/wiki/Chevrolet_Bel_Air" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/volk.jpg') }}" class="card-img-top" alt="Volkswagen Escarabajo">
+        <div class="card-body">
+          <h5 class="card-title">Volkswagen Escarabajo</h5>
+          <p class="card-text">Un ícono mundial, conocido por su diseño distintivo y durabilidad.</p>
+          <a href="https://es.wikipedia.org/wiki/Volkswagen_Beetle" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/mustang.jpg') }}" class="card-img-top" alt="Ford Mustang 1965">
+        <div class="card-body">
+          <h5 class="card-title">Ford Mustang 1965</h5>
+          <p class="card-text">Un muscle car que marcó una era con su potencia y estilo agresivo.</p>
+          <a href="https://en.wikipedia.org/wiki/Ford_Mustang_(first_generation)#1964_to_1973" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/cadillac.jpg') }}" class="card-img-top" alt="Cadillac Eldorado">
+        <div class="card-body">
+          <h5 class="card-title">Cadillac Eldorado</h5>
+          <p class="card-text">Símbolo de lujo americano durante las décadas de los 50 y 60.</p>
+          <a href="https://en.wikipedia.org/wiki/Cadillac_Eldorado" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/mercedes.jpeg') }}" class="card-img-top" alt="Mercedes-Benz 300SL">
+        <div class="card-body">
+          <h5 class="card-title">Mercedes-Benz 300SL</h5>
+          <p class="card-text">Famoso por sus puertas tipo "alas de gaviota" y rendimiento innovador.</p>
+          <a href="https://en.wikipedia.org/wiki/Mercedes-Benz_300_SL" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/plymount.jpg') }}" class="card-img-top" alt="Plymouth Superbird">
+        <div class="card-body">
+          <h5 class="card-title">Plymouth Superbird</h5>
+          <p class="card-text">Diseñado para la NASCAR, con su enorme alerón trasero es inolvidable.</p>
+          <a href="https://en.wikipedia.org/wiki/Plymouth_Superbird" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/jagua.jpg') }}" class="card-img-top" alt="Jaguar E‑Type">
+        <div class="card-body">
+          <h5 class="card-title">Jaguar E‑Type</h5>
+          <p class="card-text">Considerado uno de los autos más bellos jamás fabricados.</p>
+          <a href="https://en.wikipedia.org/wiki/Jaguar_E-Type" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 d-flex flex-column">
+        <img src="{{ url_for('static', filename='img/DMC.jpg') }}" class="card-img-top" alt="DeLorean DMC-12">
+        <div class="card-body">
+          <h5 class="card-title">DeLorean DMC‑12</h5>
+          <p class="card-text">Famoso por su papel en "Volver al Futuro", con su diseño futurista.</p>
+          <a href="https://en.wikipedia.org/wiki/DeLorean_DMC-12" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+            </div>
+        </header>
+    </main>
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 Juan de Dios Martinez Meza</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

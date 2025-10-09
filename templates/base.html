@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>NazProyect - Animales</title>
+    <style>
+    body {
+      background: url("{{ url_for('static', filename='img/mushoku_Tesnei.jpeg') }}") no-repeat center center fixed;
+      background-size: cover;
+      }
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+    .card {
+        height: 100%;
+    }
+</style>
+</head>
+<style>
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+    .card {
+        height: 100%;
+    }
+</style>
+<body class="fondo">
+    <main class="container">
+        <header>
+            <h1 class="text-center">NazProyect - Animales</h1>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">NazProyect</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{ url_for('animales') }}">Animales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('carros') }}">Carros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('maravillas') }}">Maravillas del mundo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('acerca') }}">Acerca de...</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                          {% if session.logged_in %}
+                            <li class="nav-item">
+                              <span class="navbar-text me-3">Bienvenido {{ session.user_name }}</span>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link btn btn-outline-danger" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+                            </li>
+                          {% else %}
+                            <li class="nav-item">
+                              <a class="nav-link btn btn-outline-primary" href="{{ url_for('iniciar') }}">Iniciar Sesión</a>
+                            </li>
+                          {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="{{ url_for('static', filename='img/tigresito.webp') }}" class="card-img-top" alt="Tigre de Bengala">
+                            <div class="card-body">
+                                <h5 class="card-title">Tigre de Bengala</h5>
+                                <p class="card-text">Este es un tigre de Bengala.</p>
+                                <a href="https://es.wikipedia.org/wiki/Tigre_blanco" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="{{ url_for('static', filename='img/foca monje.webp') }}" class="card-img-top" alt="Foca Monje">
+                            <div class="card-body">
+                                <h5 class="card-title">Foca Monje</h5>
+                                <p class="card-text">La foca monje es una especie en peligro crítico de extinción.</p>
+                                <a href="https://es.wikipedia.org/wiki/Foca_monje" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="{{ url_for('static', filename='img/fokapo.webp') }}" class="card-img-top" alt="Kakapo">
+                            <div class="card-body">
+                                <h5 class="card-title">Kakapo</h5>
+                                <p class="card-text">El kakapo es un loro nocturno y no volador de Nueva Zelanda.</p>
+                                <a href="https://es.wikipedia.org/wiki/Kakapo" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="{{ url_for('static', filename='img/axolot.webp') }}" class="card-img-top" alt="Axolote">
+                            <div class="card-body">
+                                <h5 class="card-title">Axolote</h5>
+                                <p class="card-text">Axolotl, uno de los animales en crisis.</p>
+                                <a href="https://es.wikipedia.org/wiki/Ambystoma_mexicanum" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="{{ url_for('static', filename='img/lemur.webp') }}" class="card-img-top" alt="Lemur">
+                            <div class="card-body">
+                                <h5 class="card-title">Lemur</h5>
+                                <p class="card-text">El lemur de rayas negras y blancas.</p>
+                                <a href="https://es.wikipedia.org/wiki/Lemuroidea" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="{{ url_for('static', filename='img/aguila.webp') }}" class="card-img-top" alt="Águila monera">
+                            <div class="card-body">
+                                <h5 class="card-title">Águila monera</h5>
+                                <p class="card-text">El águila monera es una especie nativa de África Central.</p>
+                                <a href="https://es.wikipedia.org/wiki/%C3%81guila_monera" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="{{ url_for('static', filename='img/osos.webp') }}" class="card-img-top" alt="Oso polar">
+                            <div class="card-body">
+                                <h5 class="card-title">Oso polar</h5>
+                                <p class="card-text">El oso polar proveniente del Ártico.</p>
+                                <a href="https://es.wikipedia.org/wiki/Ursus_maritimus" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="{{ url_for('static', filename='img/tortuga angonoka.webp') }}" class="card-img-top" alt="Tortuga angonoka">
+                            <div class="card-body">
+                                <h5 class="card-title">Tortuga angonoka</h5>
+                                <p class="card-text">La tortuga angonoka clasificada como una de las más raras del mundo.</p>
+                                <a href="https://es.wikipedia.org/wiki/Astrochelys_yniphora" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 d-flex flex-column">
+                            <img src="{{ url_for('static', filename='img/panda.webp') }}" class="card-img-top" alt="Oso panda">
+                            <div class="card-body">
+                                <h5 class="card-title">Oso panda</h5>
+                                <p class="card-text">El oso panda de las regiones montañosas de China.</p>
+                                <a href="https://es.wikipedia.org/wiki/Ailuropoda_melanoleuca" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </main>
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 Juan de Dios Martinez Meza</p>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
